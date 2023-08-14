@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crit Value Calculator</title>
+    <link rel="icon" href="images.jpg">
+    <link rel="stylesheet" href="style.css">
+    
+
+
+</head>
+
+<div id="outbox">
+    <header>
+         <div id="box1">
+                <image src="images.jpg" width="100">
+             
+           
+         </div>
+        
+         <h1>CRIT VALUE CALCULATOR</h1>
+
+        
+        
+    </div>
+</div>
+
+<body>
+
+    
+    <div class="nahida">
+       
+        <image src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/genshin-impact/b/b0/Genshin-nahida-full-2.png?width=814" heigth="1000px"></image>
+    </div>
+
+<div class="calculator">
+    <h1>Crit Value Calculator</h1>
+    <form id="critForm">
+        <label for="critDamage">Crit Damage:</label>
+        <input type="number" id="critDamage" step="0.01" placeholder="00.00 CD" required><br><br>
+        
+        <label for="critRate">Crit Rate:</label>
+        <input type="number" id="critRate" step="0.01" placeholder="00.00 CR" required><br><br>
+        
+        <button type="button" onclick="calculateCritValue()">Calculate Crit Value</button>
+    </form>
+    
+    <p id="result"></p>
+    
+    <script>
+        function calculateCritValue() {
+            var critDamage = parseFloat(document.getElementById("critDamage").value);
+            var critRate = parseFloat(document.getElementById("critRate").value);
+            
+            var critValue = critRate * 2 + critDamage;
+            
+            var resultElement = document.getElementById("result");
+            
+            resultElement.textContent = "Crit Value: " + critValue.toFixed(2);
+            
+            if (critValue < 10) {
+                resultElement.textContent += " - Trash";
+            } else if (critValue >= 10 && critValue <= 20) {
+                resultElement.textContent += " - Average";
+            } else if (critValue > 20 && critValue <= 30) {
+                resultElement.textContent += " - Decent Artifact";
+            } else if (critValue > 30 && critValue <= 40) {
+                resultElement.textContent += " - Very Good";
+            } else if (critValue > 40 && critValue <= 50) {
+                resultElement.textContent += " - GOD";
+            }
+        }
+    </script>
+
+    </div>
+
+
+    
+    
+</body>
+</html>
